@@ -1,0 +1,32 @@
+spec:
+  template:
+    spec:
+      containers:
+        - 
+          env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: JAVA_APP_DIR
+              value: /deployments
+            - name: APP_ID
+              value: <<your app id>>
+            - name: ACCESS_KEY
+              value: <<your access key>>
+            - name: DEVICE_ID
+              value: <<your device id>>
+            - name: INFLUXDB_DB
+              value: ttndb
+            - name: INFLUXDB_URL
+              value: 'http://influxdb-svc:8086'
+            - name: REGION
+              value: eu
+          resources:
+            requests:
+              cpu: "0.2"
+#              memory: 256Mi
+            limits:
+              cpu: "1.0"
+#              memory: 256Mi
