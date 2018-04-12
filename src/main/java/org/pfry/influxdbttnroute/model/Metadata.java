@@ -125,6 +125,7 @@ public class Metadata {
     public static class Gateway {
 
         private String gtwId;
+        private boolean gtwTrusted;
         private long timestamp;
         private Date time;
         private int channel;
@@ -134,6 +135,7 @@ public class Metadata {
         private double latitude;
         private double longitude;
         private double altitude;
+        private String locationSource;
 
         private Gateway() {
 
@@ -147,6 +149,16 @@ public class Metadata {
         @JsonProperty("gtw_id")
         public String getGtwId() {
             return gtwId;
+        }
+        
+        /**
+         * Is the Gateway trusted
+         *
+         * @return the gateway id
+         */
+        @JsonProperty("gtw_trusted")
+        public boolean getGtwTrusted() {
+            return gtwTrusted;
         }
 
         /**
@@ -229,6 +241,11 @@ public class Metadata {
          */
         public double getAltitude() {
             return altitude;
+        }
+        
+        @JsonProperty("location_source")
+        public String getLocationSource() {
+            return locationSource;
         }
         
     }
